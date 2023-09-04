@@ -1,24 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useState } from "react";
+import { Button, Nav, Navbar, Container, NavDropdown } from "react-bootstrap";
+import shoppingIcon from "./assets/shopping-icon.svg";
 
 function App() {
+  const [count, setCount] = useState(0);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      <Navbar expand="lg" className="bg-primary">
+        <Container>
+          <Navbar.Brand href="#home" className="text-center">
+            React-Bootstrap
+          </Navbar.Brand>
+        </Container>
+      </Navbar>
+      <h1>{count}</h1>
+      <>
+        <Button
+          className="m-2 fw-semibold"
+          variant="danger"
+          onClick={() => setCount(count - 1)}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          Kurang
+        </Button>
+        <Button
+          className="m-2 fw-semibold"
+          variant="primary"
+          onClick={() => setCount(count + 1)}
+        >
+          Tambah
+        </Button>
+      </>
+    </>
   );
 }
 
